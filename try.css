@@ -126,9 +126,9 @@ ul {
 
 @media (max-width: 768px) {
 
-  /* HEADER */
   .header {
     padding: 0 5%;
+    position: relative;
   }
 
   .logo-link h1 {
@@ -141,132 +141,120 @@ ul {
     margin-top: 10px;
   }
 
-  /* ☰ ICON */
+  /* Hamburger icon */
   .menu-toggle {
     display: block;
     font-size: 28px;
     cursor: pointer;
     color: #FF5733;
+    z-index: 1000;
   }
 
-  /* NAVIGATION */
+  /* Nav panel — hidden until toggled */
   .nav {
-    position: absolute;
-    top: 70px;
-    right: 10px;
-
     display: none;
+    position: absolute;
+    top: 55px;
+    right: 10px;
     flex-direction: column;
-
-    background: rgba(255, 255, 255, 0.95);
-
+    background: rgba(255, 255, 255, 0.97);
     width: 220px;
-
     padding: 15px;
-
     border-radius: 10px;
-
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     z-index: 999;
   }
 
-  /* SHOW NAV */
   .nav.active {
     display: flex;
   }
 
-  /* NAV LIST */
   .nav-list {
-    display: flex;
     flex-direction: column;
     row-gap: 10px;
   }
 
-  /* LINKS */
+  /* All links fill full width */
   .nav-link,
   .dropDown-link,
   .subMenu-link {
-
     display: block;
-
     width: 100%;
-
     padding: 8px 12px;
-
     border-radius: 8px;
   }
 
-  /* REMOVE HOVER EFFECTS */
-  .nav-link:hover,
-  .dropDown:hover .nav-link,
-  .dropDown-item:hover,
-  .subMenu-item:hover,
-  .dropDown:hover .dropDown-list,
-  .subMenu:hover .subMenu-list {
+  /* ---- Disable all desktop hover effects on mobile ---- */
 
-    background: none;
-
+  /* Desktop hover on .dropDown must not open the list */
+  .dropDown:hover .dropDown-list {
     display: none;
   }
 
-  /* ===================== */
-  /* FIRST DROPDOWN */
-  /* ===================== */
+  /* Desktop hover on .subMenu must not open sub-lists */
+  .subMenu:hover .subMenu-list {
+    display: none;
+  }
+
+  /* Nav-link hover bg reset */
+  .nav-link:hover,
+  .dropDown:hover .nav-link {
+    background-color: #FF5733;
+    border-radius: 8px;
+  }
+
+  /* ---- First-level dropdown ---- */
 
   .dropDown-list {
-
-    display: none;
-
+    /* Override absolute positioning */
     position: static;
-
+    display: none;
     background: #ffe7df;
-
-    margin-top: 10px;
-
+    margin-top: 8px;
     border-radius: 8px;
-
     padding: 8px;
-
     min-width: 100%;
+    box-shadow: none;
   }
 
   .dropDown-list.active {
     display: block;
   }
 
-  /* ===================== */
-  /* SECOND DROPDOWN */
-  /* ===================== */
+  /* ---- Second-level submenus ---- */
 
-  .subMenu-list {
-
-    display: none;
-
+  .subMenu-list,
+  .drinks-list,
+  .IceCream-list {
+    /* Override absolute positioning & hardcoded top/left */
     position: static;
-
-    background: #fff5f2;
-
+    top: auto;
+    left: auto;
+    display: none;
+    background: #fff0eb;
     margin-top: 5px;
-
-    margin-left: 10px;
-
+    margin-left: 12px;
     border-radius: 8px;
-
     padding: 5px;
+    min-width: 100%;
+    box-shadow: none;
   }
 
   .subMenu-list.active {
     display: block;
   }
 
-  /* ITEMS */
+  /* Items */
   .dropDown-item,
   .subMenu-item {
-
-    color: black;
-
-    padding: 5px 0;
+    color: #333;
+    padding: 5px 4px;
+    text-align: left;
   }
 
+  .dropDown-item:hover,
+  .subMenu-item:hover {
+    background-color: #ffd5c8;
+    border-radius: 6px;
+  }
 }
