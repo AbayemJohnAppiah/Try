@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cook Master</title>
+  <link rel="icon" href="Cook master.png">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="try.css">
+  <script defer src="try.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="#" class="logo-link">
+      <img src="Cook master.png" alt="Logo" class="img-logo">
+      <h1>Cook-Master</h1>
+    </a>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link">Recipes</a>
+        </li>
+        <li class="nav-item dropDown">
+          <a href="" class="nav-link">Categories &#9662;</a>
+
+          <ul class="dropDown-list">
+            <li class="dropDown-item subMenu">
+              <a href="" class="dropDown-link">Food &#9656;</a>
+
+              <ul class="subMenu-list">
+                <li class="subMenu-item">
+                  <a href="" class="subMenu-link">Local Food</a>
+                </li>
+                <li class="subMenu-item">
+                  <a href="" class="subMenu-link">Fast Food</a>
+                </li>
+                <li class="subMenu-item">
+                  <a href="" class="subMenu-link">Fresh Salad</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropDown-item subMenu">
+              <a href="" class="dropDown-link">Drinks &#9656;</a>
+
+              <ul class="subMenu-list drinks-list">
+                <li class="subMenu-item">
+                  <a href="" class="subMenu-link">Single Juices</a>
+                </li>
+                <li class="subMenu-item">
+                  <a href="" class="subMenu-link">Multi Juices</a>
+                </li>
+                <li class="subMenu-item">
+                  <a href="" class="subMenu-link">Hot Tea</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropDown-item subMenu">
+              <a href="" class="dropDown-link">Ice Cream &#9656;</a>
+
+              <ul class="subMenu-list IceCream-list">
+                <li class="subMenu-item">
+                  <a href="" class="subMenu-link">Vanilla Scoop</a>
+                </li>
+                <li class="subMenu-item">
+                  <a href="" class="subMenu-link">Snack</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link">About</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" id="menu-toggle">
+      ☰
+    </div>
+  </header>
+
+
+  <script>
+
+    // ☰ HAMBURGER MENU
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.querySelector(".nav");
+
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+
+
+    // ===============================
+    // FIRST DROPDOWN (Categories)
+    // ===============================
+
+    const dropDownToggle = document.querySelector(".dropDown > .nav-link");
+    const dropDownList = document.querySelector(".dropDown-list");
+
+    dropDownToggle.addEventListener("click", (e) => {
+
+      // only mobile
+      if (window.innerWidth <= 768) {
+
+        e.preventDefault();
+
+        dropDownList.classList.toggle("active");
+      }
+
+    });
+
+
+    // ===============================
+    // ALL SUBMENUS
+    // ===============================
+
+    const subMenus = document.querySelectorAll(".subMenu");
+
+    subMenus.forEach((menu) => {
+
+      const toggle = menu.querySelector(".dropDown-link");
+      const subMenu = menu.querySelector(".subMenu-list");
+
+      toggle.addEventListener("click", (e) => {
+
+        // only mobile
+        if (window.innerWidth <= 768) {
+
+          e.preventDefault();
+
+          subMenu.classList.toggle("active");
+        }
+
+      });
+
+    });
+
+  </script>
+</body>
+
+</html>

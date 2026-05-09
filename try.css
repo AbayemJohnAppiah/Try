@@ -1,0 +1,272 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  margin: 0 auto;
+  padding: 0 9%;
+}
+
+.logo-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 5px;
+  margin-top: 25px;
+}
+
+.logo-link h1 {
+  font-size: 3em;
+  background: linear-gradient(to right, #FF5733, #f5deb3);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav {}
+
+.nav-list {
+  display: flex;
+  column-gap: 30px;
+}
+
+.nav-item {}
+
+.nav-link {
+  background-color: #FF5733;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.dropDown:hover .nav-link {
+  background-color: #fc390e;
+  border-radius: 0;
+}
+
+.dropDown {
+  position: relative;
+}
+
+.dropDown:hover .dropDown-list {
+  display: block;
+}
+
+.dropDown-list,
+.subMenu-list {
+  position: absolute;
+  display: none;
+  background-color: #FF5733;
+  top: 115%;
+  left: 0;
+  right: 0;
+  min-width: max-content;
+}
+
+.dropDown-item,
+.subMenu-item {
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  padding: 5px 12px;
+}
+
+.dropDown-item:hover,
+.subMenu-item:hover {
+  background-color: #fc390e;
+}
+
+.dropDown-link {}
+
+.subMenu:hover .subMenu-list {
+  display: block;
+}
+
+.subMenu-list {
+  top: 1.2%;
+  left: 100%;
+}
+
+.drinks-list {
+  top: 33.8%;
+  left: 100%;
+}
+
+.IceCream-list {
+  top: 66%;
+  left: 100%;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header {
+    padding: 0 5%;
+  }
+
+  .logo-link h1 {
+    font-size: 1em;
+  }
+
+  .img-logo {
+    width: 70px;
+    height: 70px;
+    margin-top: 10px;
+  }
+
+  /* ☰ ICON */
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: #FF5733;
+  }
+
+  /* NAVIGATION */
+  .nav {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+
+    display: none;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    width: 220px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+    z-index: 999;
+  }
+
+  /* SHOW NAV */
+  .nav.active {
+    display: flex;
+  }
+
+  /* NAV LIST */
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  /* LINKS */
+  .nav-link,
+  .dropDown-link,
+  .subMenu-link {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+  }
+
+  /* REMOVE HOVER EFFECTS */
+  .nav-link:hover,
+  .dropDown:hover .nav-link,
+  .dropDown-item:hover,
+  .subMenu-item:hover,
+  .dropDown:hover .dropDown-list,
+  .subMenu:hover .subMenu-list {
+
+    background: none;
+
+    display: none;
+  }
+
+  /* ===================== */
+  /* FIRST DROPDOWN */
+  /* ===================== */
+
+  .dropDown-list {
+
+    display: none;
+
+    position: static;
+
+    background: #ffe7df;
+
+    margin-top: 10px;
+
+    border-radius: 8px;
+
+    padding: 8px;
+
+    min-width: 100%;
+  }
+
+  .dropDown-list.active {
+    display: block;
+  }
+
+  /* ===================== */
+  /* SECOND DROPDOWN */
+  /* ===================== */
+
+  .subMenu-list {
+
+    display: none;
+
+    position: static;
+
+    background: #fff5f2;
+
+    margin-top: 5px;
+
+    margin-left: 10px;
+
+    border-radius: 8px;
+
+    padding: 5px;
+  }
+
+  .subMenu-list.active {
+    display: block;
+  }
+
+  /* ITEMS */
+  .dropDown-item,
+  .subMenu-item {
+
+    color: black;
+
+    padding: 5px 0;
+  }
+
+}
